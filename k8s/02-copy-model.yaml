@@ -1,0 +1,47 @@
+# Copy Model to PVC (Method A: ConfigMap + Job)
+#
+# Use this for small models (< 1MB). For larger models like BERT,
+# use Method B with helper-pod.yaml and kubectl cp instead.
+# 
+# Prerequisites:
+#   1. Create tarball: COPYFILE_DISABLE=1 tar -czvf model.tar.gz bert-base-uncased/
+#   2. Create ConfigMap: kubectl create configmap model-data -n ml-workshop --from-file=model.tar.gz
+#
+# Run: kubectl apply -f k8s/02-copy-model.yaml
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: copy-model
+  namespace: ml-workshop
+spec:
+  template:
+    spec:
+      containers:
+        - name: copy
+          image: alpine:latest
+          command:
+            - /bin/sh
+            - -c
+            - |
+              echo "Cleaning PVC..."
+              rm -rf /data/*
+              echo "Extracting model from ConfigMap..."
+              tar -xzvf /source/model.tar.gz -C /data
+              echo "Contents:"
+              ls -laR /data/
+              echo "Done!"
+          volumeMounts:
+            - name: model-storage
+              mountPath: /data
+            - name: model-source
+              mountPath: /source
+      restartPolicy: Never
+      volumes:
+        - name: model-storage
+          persistentVolumeClaim:
+            claimName: model-storage
+        - name: model-source
+          configMap:
+            name: model-data
+  backoffLimit: 1

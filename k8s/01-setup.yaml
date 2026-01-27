@@ -1,0 +1,19 @@
+# Workshop Setup: Namespace and PVC
+# Run: kubectl apply -f k8s/01-setup.yaml
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ml-workshop
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: model-storage
+  namespace: ml-workshop
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi  # BERT model is ~440MB
