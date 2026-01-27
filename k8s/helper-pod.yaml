@@ -18,7 +18,7 @@ metadata:
 spec:
   containers:
     - name: helper
-      image: alpine:latest
+      image: busybox
       command: ["sleep", "3600"]
       volumeMounts:
         - name: model-storage
