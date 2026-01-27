@@ -1,0 +1,29 @@
+# Helper Pod for kubectl cp
+#
+# This pod mounts the PVC and sleeps, allowing you to copy files directly
+# using kubectl cp instead of ConfigMap + Job.
+#
+# Usage:
+#   kubectl apply -f k8s/helper-pod.yaml
+#   kubectl wait --for=condition=Ready pod/model-helper -n ml-workshop
+#   kubectl cp bert-base-uncased/ ml-workshop/model-helper:/data/bert-base-uncased/
+#   kubectl delete pod model-helper -n ml-workshop
+#
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: model-helper
+  namespace: ml-workshop
+spec:
+  containers:
+    - name: helper
+      image: alpine:latest
+      command: ["sleep", "3600"]
+      volumeMounts:
+        - name: model-storage
+          mountPath: /data
+  volumes:
+    - name: model-storage
+      persistentVolumeClaim:
+        claimName: model-storage
