@@ -31,14 +31,32 @@ kubectl cluster-info
 git clone https://github.com/sigstore/model-validation-operator.git
 cd model-validation-operator
 
-# Build the operator image
+# Configure the operator to use the latest model_signing CLI image
+# This adds the MODEL_TRANSPARENCY_CLI_IMAGE environment variable to the production overlay
+cat >> config/overlays/production/production-config.yaml << 'EOF'
+        - name: MODEL_TRANSPARENCY_CLI_IMAGE
+          value: "ghcr.io/sigstore/model-transparency-cli:latest"
+EOF
+
+# Build the operator image locally using Docker
+# --load: Loads the image into the local Docker daemon (required for kind)
+# -t: Tags the image with the expected name and version
 docker build --load -t ghcr.io/sigstore/model-validation-operator:v0.0.1 -f Dockerfile .
 
-# Load the image into kind
+# Load the image into the kind cluster
+# Kind clusters run in Docker containers and don't share images with your local Docker daemon.
+# This command copies the image from your local Docker into the kind cluster's container runtime.
 kind load docker-image ghcr.io/sigstore/model-validation-operator:v0.0.1 --name ml-workshop
 ```
 
 ### Install cert-manager (required for production overlay)
+
+**cert-manager** is a Kubernetes add-on that automates the management and issuance of TLS certificates. The model-validation-operator uses cert-manager to:
+
+1. **Secure webhook communication**: Kubernetes admission webhooks (which the operator uses to intercept pod creation) require TLS certificates for secure communication with the API server.
+2. **Automatic certificate rotation**: cert-manager handles certificate renewal automatically, ensuring the operator remains functional without manual intervention.
+
+Without cert-manager, you would need to manually create and manage TLS certificates for the operator's webhook server.
 
 ```bash
 # Install cert-manager
