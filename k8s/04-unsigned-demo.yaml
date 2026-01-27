@@ -1,0 +1,42 @@
+
+# This demonstrates what happens when you try to deploy
+# a model without a signature. The operator blocks it!
+#
+# Run: kubectl apply -f k8s/04-unsigned-demo.yaml
+---
+apiVersion: ml.sigstore.dev/v1alpha1
+kind: ModelValidation
+metadata:
+  name: unsigned-demo
+  namespace: ml-workshop
+spec:
+  config:
+    sigstoreConfig:
+      # These values don't matter - verification will fail
+      # because model.sig doesn't exist
+      certificateIdentity: "nobody@example.com"
+      certificateOidcIssuer: "https://accounts.google.com"
+  model:
+    path: /data/bert-base-uncased
+    signaturePath: /data/bert-base-uncased/model.sig
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: unsigned-workload
+  namespace: ml-workshop
+  labels:
+    validation.ml.sigstore.dev/ml: "unsigned-demo"
+spec:
+  containers:
+    - name: inference
+      image: nginx:alpine
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - name: model-storage
+          mountPath: /data
+  volumes:
+    - name: model-storage
+      persistentVolumeClaim:
+        claimName: model-storage

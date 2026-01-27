@@ -1,0 +1,53 @@
+# ModelValidation CR and Test Workload
+#
+# IMPORTANT: Update certificateIdentity with YOUR email!
+#
+# Run: kubectl apply -f k8s/03-verify.yaml
+---
+apiVersion: ml.sigstore.dev/v1alpha1
+kind: ModelValidation
+metadata:
+  name: workshop-model
+  namespace: ml-workshop
+spec:
+  config:
+    sigstoreConfig:
+      # =====================================================
+      # REPLACE THIS WITH YOUR EMAIL!
+      # =====================================================
+      # This is the email you used when signing in to Sigstore.
+      # Check the error message if verification fails - it shows
+      # the actual identity: "actual SANs: {'your.email@example.com'}"
+      #
+      certificateIdentity: "YOUR_EMAIL@example.com" 
+      # OIDC Provider - use the one matching your login method:
+      #   GitHub:    https://github.com/login/oauth
+      #   Google:    https://accounts.google.com
+      #   Microsoft: https://login.microsoftonline.com
+      #
+      certificateOidcIssuer: "https://github.com/login/oauth"
+  model:
+    path: /data/bert-base-uncased
+    signaturePath: /data/bert-base-uncased/model.sig
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ml-workload
+  namespace: ml-workshop
+  labels:
+    # This label connects the pod to the ModelValidation CR
+    validation.ml.sigstore.dev/ml: "workshop-model"
+spec:
+  containers:
+    - name: inference
+      image: nginx:alpine
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - name: model-storage
+          mountPath: /data
+  volumes:
+    - name: model-storage
+      persistentVolumeClaim:
+        claimName: model-storage
