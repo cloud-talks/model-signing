@@ -237,12 +237,545 @@
             font-size: 0.9em;
             opacity: 0.9;
         }
+        
+        .threats-section {
+            background: #fff5f5;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 2px solid #fc8181;
+        }
+        
+        .threats-section h2 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .threats-intro {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 25px;
+            font-size: 1.05em;
+        }
+        
+        .threats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        
+        .threat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #f56565;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .threat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        
+        .threat-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .threat-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        
+        .threat-desc {
+            color: #718096;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        
+        .defense {
+            background: #c6f6d5;
+            color: #22543d;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85em;
+            font-weight: 500;
+            border-left: 3px solid #38a169;
+        }
+        
+        .verification-points {
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        
+        .verification-points h2 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .verification-intro {
+            text-align: center;
+            color: #475569;
+            margin-bottom: 25px;
+            font-size: 1.05em;
+        }
+        
+        .checkpoints-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .checkpoint-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            border-top: 4px solid #3b82f6;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .checkpoint-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+        
+        .checkpoint-number {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #3b82f6;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .checkpoint-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            font-size: 1.15em;
+        }
+        
+        .checkpoint-desc {
+            color: #64748b;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        
+        .reference-footer {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            border: 2px solid #d1d5db;
+        }
+        
+        .reference-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .reference-icon {
+            font-size: 3em;
+            opacity: 0.7;
+        }
+        
+        .reference-text {
+            flex: 1;
+            color: #374151;
+            line-height: 1.8;
+        }
+        
+        .reference-text strong {
+            color: #1f2937;
+            font-size: 1.1em;
+        }
+        
+        .reference-text a {
+            color: #3b82f6;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .reference-text a:hover {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+        
+        .why-matters-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 3px solid #f59e0b;
+        }
+        
+        .why-matters-section h2 {
+            color: #78350f;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        
+        .why-matters-section h3 {
+            color: #78350f;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .why-matters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .why-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .why-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+        }
+        
+        .why-card-critical {
+            border-left: 6px solid #059669;
+        }
+        
+        .why-card-danger {
+            border-left: 6px solid #dc2626;
+        }
+        
+        .why-card-unique {
+            border-left: 6px solid #7c3aed;
+        }
+        
+        .why-card-impact {
+            border-left: 6px solid #ea580c;
+        }
+        
+        .why-card-compliance {
+            border-left: 6px solid #0891b2;
+        }
+        
+        .why-card-trust {
+            border-left: 6px solid #be123c;
+        }
+        
+        .why-icon {
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .why-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .why-content {
+            color: #374151;
+            line-height: 1.7;
+        }
+        
+        .why-content ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .why-content li {
+            margin: 8px 0;
+        }
+        
+        .why-content strong {
+            color: #1f2937;
+            font-weight: 600;
+        }
+        
+        .why-content p {
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+        
+        .key-insight {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 6px solid #2563eb;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .insight-icon {
+            font-size: 3em;
+            flex-shrink: 0;
+        }
+        
+        .insight-content {
+            color: #1e40af;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+        
+        .insight-content strong {
+            color: #1e3a8a;
+            font-weight: 700;
+        }
+        
+        .attack-scenarios {
+            background: rgba(254, 226, 226, 0.5);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+        
+        .scenarios-attack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .attack-scenario {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            border-top: 4px solid #dc2626;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .attack-scenario:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+        
+        .scenario-number {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #dc2626;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .scenario-attack-title {
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 12px;
+            margin-top: 10px;
+            font-size: 1.15em;
+        }
+        
+        .scenario-attack-desc {
+            color: #4b5563;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+        
+        .impact-badge {
+            display: inline-block;
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-top: 10px;
+            border: 1px solid #fca5a5;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>🔐 AI Model Signing & Verification Workflow</h1>
-        <p class="subtitle">End-to-End Trust & Provenance for AI Models</p>
+        <p class="subtitle">End-to-End Trust & Provenance for AI Models | Based on OpenSSF Model Signing v1.0</p>
+        
+        <div class="why-matters-section">
+            <h2>🚨 Why ML Model Supply Chain Security Matters</h2>
+            
+            <div class="why-matters-grid">
+                <div class="why-card why-card-critical">
+                    <div class="why-icon">📈</div>
+                    <div class="why-title">Explosive Growth & Adoption</div>
+                    <div class="why-content">
+                        <ul>
+                            <li><strong>94% of enterprises</strong> now deploy AI/ML in production systems</li>
+                            <li><strong>80+ million</strong> models hosted on HuggingFace alone</li>
+                            <li><strong>Healthcare, finance, defense</strong> - critical sectors increasingly dependent on AI</li>
+                            <li><strong>Foundation models</strong> powering thousands of downstream applications</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="why-card why-card-danger">
+                    <div class="why-icon">💥</div>
+                    <div class="why-title">Real-World Attack Surface</div>
+                    <div class="why-content">
+                        <ul>
+                            <li><strong>Data poisoning attacks</strong> can compromise model behavior without detection</li>
+                            <li><strong>Backdoored models</strong> have been discovered in public repositories</li>
+                            <li><strong>Model theft & IP leakage</strong> through supply chain vulnerabilities</li>
+                            <li><strong>Adversarial attacks</strong> exploiting untrusted model sources</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="why-card why-card-unique">
+                    <div class="why-icon">🔬</div>
+                    <div class="why-title">Unique ML Challenges</div>
+                    <div class="why-content">
+                        <p><strong>Unlike traditional software:</strong></p>
+                        <ul>
+                            <li><strong>Models are opaque</strong> - behavior can't be inspected by reading "code"</li>
+                            <li><strong>Multi-GB artifacts</strong> - difficult to scan and verify</li>
+                            <li><strong>Pretrained model reuse</strong> - inheriting unknown vulnerabilities</li>
+                            <li><strong>Data is code</strong> - training data becomes part of the attack surface</li>
+                            <li><strong>No "compile time"</strong> - threats emerge during runtime inference</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="why-card why-card-impact">
+                    <div class="why-icon">💰</div>
+                    <div class="why-title">Business & Financial Impact</div>
+                    <div class="why-content">
+                        <ul>
+                            <li><strong>$10M+ average cost</strong> of an AI security incident</li>
+                            <li><strong>Regulatory penalties</strong> - EU AI Act, GDPR, sector-specific regulations</li>
+                            <li><strong>Reputational damage</strong> - loss of customer trust in AI systems</li>
+                            <li><strong>Operational disruption</strong> - model recalls and retraining costs</li>
+                            <li><strong>Competitive disadvantage</strong> - stolen proprietary models</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="why-card why-card-compliance">
+                    <div class="why-icon">⚖️</div>
+                    <div class="why-title">Regulatory & Compliance Drivers</div>
+                    <div class="why-content">
+                        <ul>
+                            <li><strong>EU AI Act</strong> requires transparency and traceability for high-risk AI</li>
+                            <li><strong>Executive Order 14110</strong> (US) mandates secure AI development</li>
+                            <li><strong>SOC 2, ISO 27001</strong> expanding to cover ML systems</li>
+                            <li><strong>Industry standards</strong> - NIST AI Risk Management Framework</li>
+                            <li><strong>Sector requirements</strong> - FDA (medical), FINRA (finance), DoD (defense)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="why-card why-card-trust">
+                    <div class="why-icon">🤝</div>
+                    <div class="why-title">Trust Chain is Broken</div>
+                    <div class="why-content">
+                        <p><strong>Current reality:</strong></p>
+                        <ul>
+                            <li><strong>No way to verify</strong> a model matches what the creator intended</li>
+                            <li><strong>No provenance</strong> - can't trace model origins or training process</li>
+                            <li><strong>Different teams</strong> - model creators ≠ model deployers</li>
+                            <li><strong>Open source models</strong> - community contributions without verification</li>
+                            <li><strong>Zero visibility</strong> into model dependencies and composition</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="key-insight">
+                <div class="insight-icon">💡</div>
+                <div class="insight-content">
+                    <strong>Key Insight:</strong> Traditional software security assumes you can read code, run static analysis, and audit dependencies. 
+                    With ML models, the "logic" is encoded in billions of weights trained on potentially compromised data. 
+                    <strong>Model signing is the foundation</strong> that enables trust, verification, and accountability in the ML supply chain.
+                </div>
+            </div>
+            
+            <div class="attack-scenarios">
+                <h3>Real-World Attack Scenarios</h3>
+                <div class="scenarios-attack-grid">
+                    <div class="attack-scenario">
+                        <div class="scenario-number">1</div>
+                        <div class="scenario-attack-title">Trojan Model Upload</div>
+                        <div class="scenario-attack-desc">
+                            Attacker uploads backdoored model to public hub disguised as popular architecture. 
+                            Thousands of developers download and integrate into production without verification.
+                            <span class="impact-badge">Impact: Mass compromise</span>
+                        </div>
+                    </div>
+                    
+                    <div class="attack-scenario">
+                        <div class="scenario-number">2</div>
+                        <div class="scenario-attack-title">Supply Chain Injection</div>
+                        <div class="scenario-attack-desc">
+                            Compromised training pipeline injects malicious behavior into fine-tuned models. 
+                            Original base model is trusted, but derivative models contain hidden triggers.
+                            <span class="impact-badge">Impact: Stealthy persistence</span>
+                        </div>
+                    </div>
+                    
+                    <div class="attack-scenario">
+                        <div class="scenario-number">3</div>
+                        <div class="scenario-attack-title">Model Substitution</div>
+                        <div class="scenario-attack-desc">
+                            Attacker replaces legitimate model in registry with malicious version. 
+                            Downstream applications unknowingly deploy compromised model in critical systems.
+                            <span class="impact-badge">Impact: Critical infrastructure risk</span>
+                        </div>
+                    </div>
+                    
+                    <div class="attack-scenario">
+                        <div class="scenario-number">4</div>
+                        <div class="scenario-attack-title">Insider Threat</div>
+                        <div class="scenario-attack-desc">
+                            Malicious insider modifies model post-training before deployment. 
+                            Without signing, no way to detect unauthorized changes to model weights.
+                            <span class="impact-badge">Impact: Undetectable tampering</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         
         <div class="workflow">
             <div class="stage producer">
@@ -363,6 +896,68 @@
             </div>
         </div>
         
+        <div class="threats-section">
+            <h2>⚠️ ML Supply Chain Threats</h2>
+            <p class="threats-intro">Model signing defends against multiple attack vectors in the machine learning supply chain</p>
+            <div class="threats-grid">
+                <div class="threat-card">
+                    <div class="threat-icon">🗂️</div>
+                    <div class="threat-title">Compromised Datasets</div>
+                    <div class="threat-desc">Malicious actors inject poisoned data during training, leading to backdoored models</div>
+                    <div class="defense">✓ Mitigated by dataset signatures & provenance tracking</div>
+                </div>
+                
+                <div class="threat-card">
+                    <div class="threat-icon">💻</div>
+                    <div class="threat-title">Compromised Model Source</div>
+                    <div class="threat-desc">Unauthorized modifications to model architecture or training code</div>
+                    <div class="defense">✓ Mitigated by signing during training process</div>
+                </div>
+                
+                <div class="threat-card">
+                    <div class="threat-icon">📦</div>
+                    <div class="threat-title">Compromised ML Frameworks</div>
+                    <div class="threat-desc">Supply chain attacks on PyTorch, TensorFlow, or other dependencies</div>
+                    <div class="defense">✓ Mitigated by SBOM & dependency verification</div>
+                </div>
+                
+                <div class="threat-card">
+                    <div class="threat-icon">🎯</div>
+                    <div class="threat-title">Compromised Pretrained Models</div>
+                    <div class="threat-desc">Base models or checkpoints contain hidden vulnerabilities or backdoors</div>
+                    <div class="defense">✓ Mitigated by signature verification before use</div>
+                </div>
+                
+                <div class="threat-card">
+                    <div class="threat-icon">🔄</div>
+                    <div class="threat-title">Model Tampering in Transit</div>
+                    <div class="threat-desc">Unauthorized modifications during upload/download from model hubs</div>
+                    <div class="defense">✓ Mitigated by cryptographic signatures & hash verification</div>
+                </div>
+                
+                <div class="threat-card">
+                    <div class="threat-icon">🎭</div>
+                    <div class="threat-title">Model Substitution Attacks</div>
+                    <div class="threat-desc">Malicious models masquerading as legitimate trusted models</div>
+                    <div class="defense">✓ Mitigated by PKI-based identity verification</div>
+                </div>
+                
+                <div class="threat-card">
+                    <div class="threat-icon">🕵️</div>
+                    <div class="threat-title">Lack of Provenance</div>
+                    <div class="threat-desc">No way to trace model back to original creator or training process</div>
+                    <div class="defense">✓ Mitigated by provenance chain & audit trails</div>
+                </div>
+                
+                <div class="threat-card">
+                    <div class="threat-icon">⚡</div>
+                    <div class="threat-title">Unauthorized Model Modifications</div>
+                    <div class="threat-desc">Post-deployment tampering or fine-tuning without authorization</div>
+                    <div class="defense">✓ Mitigated by integrity checks at deployment</div>
+                </div>
+            </div>
+        </div>
+        
         <div class="consumer-scenarios">
             <h2>🎯 Consumer Scenarios & Use Cases</h2>
             <div class="scenarios-grid">
@@ -425,6 +1020,47 @@
                 <div class="trust-item">
                     <div class="trust-item-title">✓ Integrity Checks</div>
                     <div class="trust-item-desc">Hash verification (SHA-256/512)</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="verification-points">
+            <h2>🛡️ Verification Checkpoints</h2>
+            <p class="verification-intro">Model signatures are verified at critical points in the ML lifecycle</p>
+            <div class="checkpoints-grid">
+                <div class="checkpoint-card">
+                    <div class="checkpoint-number">1</div>
+                    <div class="checkpoint-title">During Training</div>
+                    <div class="checkpoint-desc">Models are signed immediately after training completes with cryptographic signatures linked to the creator's identity</div>
+                </div>
+                
+                <div class="checkpoint-card">
+                    <div class="checkpoint-number">2</div>
+                    <div class="checkpoint-title">Hub Upload</div>
+                    <div class="checkpoint-desc">Signatures are verified when models are uploaded to registries (HuggingFace, NGC, etc.) to ensure authenticity</div>
+                </div>
+                
+                <div class="checkpoint-card">
+                    <div class="checkpoint-number">3</div>
+                    <div class="checkpoint-title">Before Deployment</div>
+                    <div class="checkpoint-desc">Signatures are checked before models are deployed to production, ensuring no tampering occurred</div>
+                </div>
+                
+                <div class="checkpoint-card">
+                    <div class="checkpoint-number">4</div>
+                    <div class="checkpoint-title">Model Composition</div>
+                    <div class="checkpoint-desc">When models use other models as inputs (ensemble, fine-tuning), signatures are verified for all dependencies</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="reference-footer">
+            <div class="reference-content">
+                <div class="reference-icon">📚</div>
+                <div class="reference-text">
+                    <strong>Based on OpenSSF Model Signing v1.0</strong><br>
+                    Learn more: <a href="https://openssf.org/blog/2025/04/04/launch-of-model-signing-v1-0-openssf-ai-ml-working-group-secures-the-machine-learning-supply-chain/" target="_blank">OpenSSF AI/ML Working Group - Model Signing Launch</a><br>
+                    GitHub: <a href="https://github.com/sigstore/model-transparency" target="_blank">sigstore/model-transparency</a>
                 </div>
             </div>
         </div>
